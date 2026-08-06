@@ -1,0 +1,3153 @@
+/* ==================================================
+   PUKYVERSE GAMES
+   Internal Record Archive
+   record.css
+================================================== */
+
+
+/* ==================================================
+   Variables
+================================================== */
+
+.record-page-body {
+    --record-bg: #0d171c;
+    --record-bg-deep: #081014;
+    --record-panel: #122229;
+    --record-panel-light: #152831;
+    --record-card: rgba(255, 255, 255, 0.035);
+
+    --record-text: #edf8f8;
+    --record-text-soft: rgba(226, 241, 241, 0.72);
+    --record-text-muted: rgba(226, 241, 241, 0.44);
+    --record-text-faint: rgba(226, 241, 241, 0.28);
+
+    --record-cyan: #50d8cb;
+    --record-cyan-light: #83eee4;
+    --record-cyan-soft: rgba(80, 216, 203, 0.12);
+
+    --record-yellow: #e1b44f;
+    --record-yellow-soft: rgba(225, 180, 79, 0.09);
+
+    --record-border: rgba(92, 215, 205, 0.18);
+    --record-border-soft: rgba(226, 241, 241, 0.11);
+
+    --record-radius-large: 20px;
+    --record-radius-medium: 13px;
+    --record-radius-small: 8px;
+
+    --record-page-width: 1380px;
+}
+
+
+/* ==================================================
+   Reset / Base
+================================================== */
+
+.record-page-body {
+    min-height: 100vh;
+    margin: 0;
+
+    color: var(--record-text);
+
+    background:
+        radial-gradient(
+            circle at 12% 4%,
+            rgba(43, 194, 190, 0.11),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 22%,
+            rgba(40, 104, 118, 0.11),
+            transparent 28%
+        ),
+        var(--record-bg);
+
+    font-family:
+        "Noto Sans JP",
+        "Yu Gothic",
+        "Meiryo",
+        sans-serif;
+
+    line-height: 1.75;
+}
+
+.record-page-body *,
+.record-page-body *::before,
+.record-page-body *::after {
+    box-sizing: border-box;
+}
+
+.record-page-body a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.record-page-body img {
+    display: block;
+    max-width: 100%;
+}
+
+.record-page-body button,
+.record-page-body input {
+    font: inherit;
+}
+
+
+/* ==================================================
+   Header
+================================================== */
+
+.record-header {
+    min-height: 92px;
+    padding:
+        0
+        clamp(24px, 5vw, 80px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    background: rgba(7, 15, 19, 0.97);
+
+    border-bottom:
+        1px solid
+        var(--record-border);
+
+    box-shadow:
+        0 14px 40px
+        rgba(0, 0, 0, 0.18);
+}
+
+.record-header-brand {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.record-header-logo {
+    flex-shrink: 0;
+}
+
+.record-header-logo img {
+    width: clamp(126px, 10vw, 158px);
+    max-height: 46px;
+
+    object-fit: contain;
+}
+
+.record-header-brand > div,
+.record-header-access > div {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.record-header-brand span,
+.record-header-access strong {
+    color: var(--record-text);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.record-header-brand small,
+.record-header-access small {
+    color: var(--record-text-muted);
+    font-size: 11px;
+}
+
+.record-header-access {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.record-access-indicator {
+    width: 11px;
+    height: 11px;
+
+    flex-shrink: 0;
+
+    background: var(--record-cyan);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 5px rgba(80, 216, 203, 0.08),
+        0 0 18px rgba(80, 216, 203, 0.78);
+}
+
+
+/* ==================================================
+   Main Layout
+================================================== */
+
+.record-main {
+    width:
+        min(
+            var(--record-page-width),
+            calc(100% - 64px)
+        );
+
+    margin: 0 auto;
+
+    padding:
+        clamp(36px, 5vw, 62px)
+        0
+        clamp(78px, 9vw, 120px);
+}
+
+
+/* ==================================================
+   Toolbar
+================================================== */
+
+.record-toolbar {
+    margin-bottom: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.record-back-link {
+    color: var(--record-cyan);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.record-back-link:hover {
+    color: var(--record-cyan-light);
+    transform: translateX(-3px);
+}
+
+.record-toolbar-information {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px 22px;
+
+    color: var(--record-text-faint);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+    letter-spacing: 0.11em;
+}
+
+
+/* ==================================================
+   Security Banner
+================================================== */
+
+.record-security-banner {
+    margin-bottom: 28px;
+    padding: 20px 24px;
+
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 18px;
+    align-items: center;
+
+    color: #f3d994;
+    background: var(--record-yellow-soft);
+
+    border:
+        1px solid
+        rgba(225, 180, 79, 0.27);
+
+    border-radius: 12px;
+}
+
+.record-security-icon {
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    color: #181208;
+    background: var(--record-yellow);
+
+    border-radius: 9px;
+
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.record-security-banner strong {
+    display: block;
+    margin-bottom: 5px;
+
+    font-size: 14px;
+}
+
+.record-security-banner p {
+    margin: 0;
+
+    color: rgba(243, 217, 148, 0.68);
+
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+
+/* ==================================================
+   Document Header
+================================================== */
+
+.record-document-header {
+    padding:
+        clamp(48px, 6vw, 78px)
+        clamp(44px, 7vw, 92px);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 44px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--record-panel-light),
+            var(--record-panel)
+        );
+
+    border:
+        1px solid
+        var(--record-border);
+
+    border-radius:
+        var(--record-radius-large)
+        var(--record-radius-large)
+        0
+        0;
+
+    box-shadow:
+        inset
+        0
+        0
+        60px
+        rgba(80, 216, 203, 0.025);
+}
+
+.record-document-heading {
+    max-width: 1100px;
+}
+
+.record-document-type {
+    margin: 0 0 16px;
+
+    color: var(--record-cyan);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+}
+
+.record-document-id {
+    margin: 0 0 26px;
+
+    color: var(--record-text-muted);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+}
+
+.record-document-heading h1 {
+    max-width: 1120px;
+    margin: 0 0 30px;
+
+    color: var(--record-text);
+
+    font-size:
+        clamp(
+            46px,
+            5vw,
+            74px
+        );
+
+    line-height: 1.16;
+    letter-spacing: -0.045em;
+}
+
+.record-document-lead {
+    max-width: 960px;
+    margin: 0;
+
+    color: var(--record-text-soft);
+
+    font-size:
+        clamp(
+            16px,
+            1.4vw,
+            19px
+        );
+
+    line-height: 1.95;
+}
+
+
+/* ==================================================
+   Document Summary
+================================================== */
+
+.record-document-summary {
+    margin: 0;
+
+    display: grid;
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 0 34px;
+
+    border-top:
+        1px solid
+        var(--record-border-soft);
+}
+
+.record-document-summary div {
+    min-width: 0;
+    padding: 18px 0;
+
+    display: grid;
+    grid-template-columns: 105px minmax(0, 1fr);
+    gap: 18px;
+
+    border-bottom:
+        1px solid
+        var(--record-border-soft);
+}
+
+.record-document-summary dt {
+    color: var(--record-text-muted);
+    font-size: 12px;
+}
+
+.record-document-summary dd {
+    min-width: 0;
+    margin: 0;
+
+    color: var(--record-text);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    overflow-wrap: anywhere;
+}
+
+.record-permission-badge {
+    display: inline-block;
+    padding: 6px 11px;
+
+    color: var(--record-cyan);
+    background: var(--record-cyan-soft);
+
+    border:
+        1px solid
+        rgba(80, 216, 203, 0.28);
+
+    border-radius: 999px;
+
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   Document Body
+================================================== */
+
+.record-document {
+    padding:
+        clamp(54px, 6vw, 84px)
+        clamp(44px, 7vw, 92px);
+
+    background: #121f25;
+
+    border-right:
+        1px solid
+        var(--record-border);
+
+    border-bottom:
+        1px solid
+        var(--record-border);
+
+    border-left:
+        1px solid
+        var(--record-border);
+
+    border-radius:
+        0
+        0
+        var(--record-radius-large)
+        var(--record-radius-large);
+}
+
+
+/* ==================================================
+   Sections
+================================================== */
+
+.record-section {
+    padding-bottom:
+        clamp(54px, 6vw, 78px);
+
+    margin-bottom:
+        clamp(54px, 6vw, 78px);
+
+    border-bottom:
+        1px solid
+        var(--record-border-soft);
+}
+
+.record-section:last-of-type {
+    margin-bottom: 0;
+}
+
+.record-section-heading {
+    margin-bottom: 38px;
+
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.record-section-heading > span {
+    color: var(--record-cyan);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.record-section-heading p {
+    margin: 0 0 7px;
+
+    color:
+        rgba(
+            80,
+            216,
+            203,
+            0.67
+        );
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+}
+
+.record-section-heading h2 {
+    margin: 0;
+
+    color: var(--record-text);
+
+    font-size:
+        clamp(
+            27px,
+            2.8vw,
+            38px
+        );
+
+    line-height: 1.32;
+}
+
+
+/* ==================================================
+   Customer Information
+================================================== */
+
+.record-information-grid {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(260px, 340px);
+
+    gap: 44px;
+    align-items: start;
+}
+
+.record-information-list {
+    margin: 0;
+
+    border-top:
+        1px solid
+        var(--record-border-soft);
+}
+
+.record-information-list div {
+    padding: 18px 0;
+
+    display: grid;
+    grid-template-columns: 145px minmax(0, 1fr);
+    gap: 22px;
+
+    border-bottom:
+        1px solid
+        var(--record-border-soft);
+}
+
+.record-information-list dt {
+    color: var(--record-text-muted);
+    font-size: 13px;
+}
+
+.record-information-list dd {
+    margin: 0;
+
+    color: var(--record-text);
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.record-status-panel {
+    width: 100%;
+    padding: 28px 30px;
+
+    background: var(--record-cyan-soft);
+
+    border:
+        1px solid
+        rgba(80, 216, 203, 0.2);
+
+    border-radius: var(--record-radius-medium);
+}
+
+.record-status-panel p {
+    margin: 0 0 16px;
+
+    color:
+        rgba(
+            80,
+            216,
+            203,
+            0.7
+        );
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+}
+
+.record-status-panel strong {
+    display: block;
+    margin-bottom: 9px;
+
+    color: var(--record-text);
+
+    font-size: 28px;
+    line-height: 1.35;
+}
+
+.record-status-panel span {
+    color: var(--record-cyan);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   Request Text
+================================================== */
+
+.record-text-block {
+    max-width: 1040px;
+}
+
+.record-text-block p {
+    margin: 0 0 22px;
+
+    color: var(--record-text-soft);
+
+    font-size:
+        clamp(
+            15px,
+            1.25vw,
+            17px
+        );
+
+    line-height: 2;
+}
+
+.record-text-block p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==================================================
+   Request Cards
+================================================== */
+
+.record-request-grid {
+    margin-top: 34px;
+
+    display: grid;
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 16px;
+}
+
+.record-request-grid article {
+    min-width: 0;
+    padding: 27px 28px;
+
+    background: var(--record-card);
+
+    border:
+        1px solid
+        var(--record-border-soft);
+
+    border-radius: 12px;
+}
+
+.record-request-grid article > span {
+    color: var(--record-cyan);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.record-request-grid h3 {
+    margin: 15px 0 10px;
+
+    color: var(--record-text);
+
+    font-size: 19px;
+}
+
+.record-request-grid p {
+    margin: 0;
+
+    color: var(--record-text-soft);
+
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* ==================================================
+   Customer Message
+================================================== */
+
+.record-customer-message {
+    margin: 0;
+    padding:
+        clamp(28px, 4vw, 40px)
+        clamp(26px, 4vw, 42px);
+
+    background: var(--record-card);
+
+    border-left:
+        4px solid
+        var(--record-cyan);
+
+    border-radius:
+        0
+        13px
+        13px
+        0;
+}
+
+.record-customer-message p {
+    margin: 0 0 18px;
+
+    color: var(--record-text-soft);
+
+    font-size:
+        clamp(
+            15px,
+            1.25vw,
+            17px
+        );
+
+    line-height: 2;
+}
+
+.record-customer-message p:last-of-type {
+    margin-bottom: 0;
+}
+
+.record-customer-message footer {
+    margin-top: 30px;
+
+    color:
+        rgba(
+            80,
+            216,
+            203,
+            0.68
+        );
+
+    font-size: 12px;
+}
+
+
+/* ==================================================
+   Files
+================================================== */
+
+.record-file-list {
+    display: grid;
+    gap: 11px;
+}
+
+.record-file-item {
+    min-width: 0;
+    padding: 19px 22px;
+
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: center;
+
+    background: var(--record-card);
+
+    border:
+        1px solid
+        var(--record-border-soft);
+
+    border-radius: 10px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.record-file-item:hover {
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.052
+        );
+
+    border-color:
+        rgba(
+            80,
+            216,
+            203,
+            0.29
+        );
+
+    transform: translateY(-1px);
+}
+
+.record-file-icon {
+    width: 56px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--record-cyan);
+    background: var(--record-cyan-soft);
+
+    border-radius: 7px;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.record-file-item > div:nth-child(2) {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.record-file-item strong {
+    color: var(--record-text);
+
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+.record-file-item span {
+    color: var(--record-text-muted);
+
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.record-file-item small {
+    color: var(--record-text-faint);
+
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   Keyword File
+================================================== */
+
+.record-file-item-key {
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(80, 216, 203, 0.11),
+            rgba(80, 216, 203, 0.035)
+        );
+
+    border-color:
+        rgba(
+            80,
+            216,
+            203,
+            0.42
+        );
+
+    box-shadow:
+        inset
+        0
+        0
+        30px
+        rgba(80, 216, 203, 0.045);
+}
+
+.record-file-item-key::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background: var(--record-cyan);
+
+    border-radius:
+        10px
+        0
+        0
+        10px;
+}
+
+
+/* ==================================================
+   File Note
+================================================== */
+
+.record-file-note {
+    margin-top: 22px;
+    padding: 22px 25px;
+
+    color: #e8d18f;
+    background: var(--record-yellow-soft);
+
+    border:
+        1px solid
+        rgba(225, 180, 79, 0.2);
+
+    border-radius: 10px;
+}
+
+.record-file-note strong {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 13px;
+}
+
+.record-file-note p {
+    margin: 0;
+
+    color:
+        rgba(
+            232,
+            209,
+            143,
+            0.66
+        );
+
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+
+/* ==================================================
+   Specification Table
+================================================== */
+
+.record-table-wrapper {
+    overflow-x: auto;
+}
+
+.record-table {
+    width: 100%;
+    min-width: 620px;
+
+    border-collapse: collapse;
+}
+
+.record-table th,
+.record-table td {
+    padding: 19px 22px;
+
+    text-align: left;
+    vertical-align: top;
+
+    border-bottom:
+        1px solid
+        var(--record-border-soft);
+
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.record-table th {
+    width: 210px;
+
+    color: var(--record-text-muted);
+    font-weight: 500;
+}
+
+.record-table td {
+    color: var(--record-text);
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   Internal Note
+================================================== */
+
+.record-internal-note {
+    padding:
+        clamp(28px, 4vw, 38px)
+        clamp(26px, 4vw, 40px);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(80, 216, 203, 0.075),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border:
+        1px solid
+        rgba(80, 216, 203, 0.22);
+
+    border-radius: 13px;
+}
+
+.record-note-label {
+    margin-bottom: 22px;
+
+    color: var(--record-cyan);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.record-internal-note p {
+    margin: 0 0 17px;
+
+    color: var(--record-text-soft);
+
+    font-size: 16px;
+    line-height: 1.95;
+}
+
+.record-internal-note p:last-of-type {
+    margin-bottom: 0;
+}
+
+.record-internal-note footer {
+    margin-top: 30px;
+
+    color: var(--record-text-muted);
+
+    font-size: 12px;
+}
+
+
+/* ==================================================
+   Document Footer
+================================================== */
+
+.record-document-footer {
+    padding-top: 32px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.record-document-footer > a {
+    color: var(--record-cyan);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.record-document-footer > a:hover {
+    color: var(--record-cyan-light);
+    transform: translateX(-3px);
+}
+
+.record-document-footer > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+
+    color: var(--record-text-faint);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+}
+
+
+/* ==================================================
+   Footer
+================================================== */
+
+.record-footer {
+    min-height: 72px;
+    padding:
+        0
+        clamp(24px, 5vw, 80px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+
+    color: var(--record-text-faint);
+    background: var(--record-bg-deep);
+
+    border-top:
+        1px solid
+        var(--record-border);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+}
+
+.record-footer p {
+    margin: 0;
+}
+
+.record-footer div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+}
+
+
+/* ==================================================
+   Large Desktop
+================================================== */
+
+@media (min-width: 1600px) {
+
+    .record-page-body {
+        --record-page-width: 1460px;
+    }
+
+    .record-document-header {
+        padding-right: 104px;
+        padding-left: 104px;
+    }
+
+    .record-document {
+        padding-right: 104px;
+        padding-left: 104px;
+    }
+
+}
+
+
+/* ==================================================
+   Tablet
+================================================== */
+
+@media (max-width: 1050px) {
+
+    .record-main {
+        width:
+            min(
+                100% - 40px,
+                1120px
+            );
+    }
+
+    .record-document-summary {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+    .record-information-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .record-status-panel {
+        max-width: 420px;
+    }
+
+    .record-request-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ==================================================
+   Small Tablet
+================================================== */
+
+@media (max-width: 760px) {
+
+    .record-header {
+        min-height: 80px;
+        padding:
+            14px
+            22px;
+    }
+
+    .record-header-brand > div {
+        display: none;
+    }
+
+    .record-main {
+        width:
+            min(
+                100% - 28px,
+                760px
+            );
+
+        padding:
+            28px
+            0
+            76px;
+    }
+
+    .record-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .record-toolbar-information {
+        justify-content: flex-start;
+    }
+
+    .record-document-header {
+        padding:
+            48px
+            34px;
+    }
+
+    .record-document-heading h1 {
+        font-size:
+            clamp(
+                38px,
+                8vw,
+                56px
+            );
+    }
+
+    .record-document-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .record-document-summary div {
+        grid-template-columns: 120px minmax(0, 1fr);
+    }
+
+    .record-document {
+        padding:
+            54px
+            34px;
+    }
+
+    .record-section-heading {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 15px;
+    }
+
+    .record-information-list div {
+        grid-template-columns: 125px minmax(0, 1fr);
+    }
+
+    .record-file-item {
+        grid-template-columns: 52px minmax(0, 1fr);
+    }
+
+    .record-file-item small {
+        grid-column: 2;
+    }
+
+    .record-document-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .record-document-footer > div {
+        align-items: flex-start;
+    }
+
+}
+
+
+/* ==================================================
+   Mobile
+================================================== */
+
+@media (max-width: 520px) {
+
+    .record-header {
+        min-height: 72px;
+        padding:
+            12px
+            16px;
+    }
+
+    .record-header-logo img {
+        width: 112px;
+    }
+
+    .record-header-access {
+        gap: 9px;
+    }
+
+    .record-header-access strong {
+        font-size: 9px;
+    }
+
+    .record-header-access small {
+        display: none;
+    }
+
+    .record-access-indicator {
+        width: 9px;
+        height: 9px;
+    }
+
+    .record-main {
+        width:
+            calc(100% - 20px);
+
+        padding:
+            20px
+            0
+            58px;
+    }
+
+    .record-back-link {
+        font-size: 12px;
+    }
+
+    .record-toolbar-information {
+        font-size: 8px;
+    }
+
+    .record-security-banner {
+        padding: 18px;
+
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .record-security-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .record-document-header {
+        padding:
+            36px
+            20px;
+    }
+
+    .record-document-type {
+        font-size: 9px;
+    }
+
+    .record-document-id {
+        font-size: 9px;
+    }
+
+    .record-document-heading h1 {
+        margin-bottom: 22px;
+
+        font-size:
+            clamp(
+                32px,
+                10vw,
+                42px
+            );
+
+        line-height: 1.2;
+    }
+
+    .record-document-lead {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .record-document-summary div {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .record-document-summary dt {
+        font-size: 10px;
+    }
+
+    .record-document-summary dd {
+        font-size: 13px;
+    }
+
+    .record-document {
+        padding:
+            44px
+            20px;
+    }
+
+    .record-section {
+        padding-bottom: 48px;
+        margin-bottom: 48px;
+    }
+
+    .record-section-heading {
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 11px;
+        margin-bottom: 27px;
+    }
+
+    .record-section-heading > span {
+        font-size: 11px;
+    }
+
+    .record-section-heading p {
+        font-size: 8px;
+    }
+
+    .record-section-heading h2 {
+        font-size: 25px;
+    }
+
+    .record-information-list div {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .record-information-list dt {
+        font-size: 11px;
+    }
+
+    .record-information-list dd {
+        font-size: 14px;
+    }
+
+    .record-status-panel {
+        padding: 22px;
+    }
+
+    .record-status-panel strong {
+        font-size: 23px;
+    }
+
+    .record-text-block p,
+    .record-customer-message p {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+
+    .record-request-grid article {
+        padding: 22px 20px;
+    }
+
+    .record-request-grid h3 {
+        font-size: 17px;
+    }
+
+    .record-request-grid p {
+        font-size: 13px;
+    }
+
+    .record-customer-message {
+        padding:
+            25px
+            21px;
+    }
+
+    .record-file-item {
+        padding:
+            16px
+            14px;
+
+        grid-template-columns: 46px minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .record-file-icon {
+        width: 46px;
+        height: 38px;
+    }
+
+    .record-file-item strong {
+        font-size: 14px;
+    }
+
+    .record-file-item span {
+        font-size: 11px;
+    }
+
+    .record-file-item small {
+        grid-column: 2;
+
+        font-size: 9px;
+    }
+
+    .record-file-note {
+        padding:
+            18px
+            17px;
+    }
+
+    .record-file-note p {
+        font-size: 12px;
+    }
+
+    .record-table {
+        min-width: 520px;
+    }
+
+    .record-table th,
+    .record-table td {
+        padding:
+            15px
+            16px;
+
+        font-size: 13px;
+    }
+
+    .record-internal-note {
+        padding:
+            25px
+            21px;
+    }
+
+    .record-internal-note p {
+        font-size: 14px;
+    }
+
+    .record-document-footer > a {
+        font-size: 12px;
+    }
+
+    .record-document-footer > div {
+        font-size: 8px;
+    }
+
+    .record-footer {
+        min-height: auto;
+        padding:
+            18px
+            16px;
+
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+
+        font-size: 8px;
+    }
+
+}
+
+/* ==================================================
+   Mushroom Cat Production Log
+================================================== */
+
+.production-character-layout {
+    display: grid;
+    grid-template-columns:
+        minmax(300px, 0.72fr)
+        minmax(0, 1.28fr);
+
+    gap: clamp(34px, 5vw, 68px);
+    align-items: start;
+}
+
+.production-character-preview {
+    margin: 0;
+    padding: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border:
+        1px solid
+        var(--record-border-soft);
+
+    border-radius: 14px;
+}
+
+.production-character-preview img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    object-fit: contain;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(80, 216, 203, 0.08),
+            transparent 65%
+        ),
+        rgba(0, 0, 0, 0.16);
+
+    border-radius: 10px;
+}
+
+.production-character-preview figcaption {
+    margin-top: 15px;
+
+    color: var(--record-text-muted);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+    text-align: center;
+}
+
+.production-character-information {
+    display: grid;
+    gap: 28px;
+}
+
+.production-mistake-list {
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 13px;
+
+    list-style: none;
+}
+
+.production-mistake-list li {
+    min-width: 0;
+    padding: 23px 24px;
+
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.032);
+
+    border:
+        1px solid
+        var(--record-border-soft);
+
+    border-radius: 11px;
+}
+
+.production-mistake-list li > span {
+    color: var(--record-cyan);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.production-mistake-list h3 {
+    margin: 0 0 8px;
+
+    color: var(--record-text);
+
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.production-mistake-list p {
+    margin: 0;
+
+    color: var(--record-text-soft);
+
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+.production-jealous-note {
+    border-left-color: #db8158;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(219, 129, 88, 0.07),
+            rgba(255, 255, 255, 0.025)
+        );
+}
+
+.production-jealous-note footer {
+    color: rgba(219, 129, 88, 0.7);
+}
+
+.production-management-code {
+    margin-top: 36px;
+    padding:
+        clamp(32px, 5vw, 52px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(80, 216, 203, 0.13),
+            transparent 70%
+        ),
+        rgba(255, 255, 255, 0.025);
+
+    border:
+        1px solid
+        rgba(80, 216, 203, 0.38);
+
+    border-radius: 15px;
+
+    box-shadow:
+        inset 0 0 40px
+        rgba(80, 216, 203, 0.04);
+}
+
+.production-management-code p {
+    margin: 0;
+
+    color:
+        rgba(80, 216, 203, 0.62);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+}
+
+.production-management-code strong {
+    color: var(--record-cyan);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(46px, 7vw, 82px);
+
+    line-height: 1.1;
+    letter-spacing: 0.08em;
+
+    text-shadow:
+        0 0 24px
+        rgba(80, 216, 203, 0.3);
+}
+
+.production-management-code span {
+    color: var(--record-text-muted);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+}
+
+
+/* ==================================================
+   Production Log Responsive
+================================================== */
+
+@media (max-width: 1000px) {
+
+    .production-character-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .production-character-preview {
+        width: min(100%, 580px);
+    }
+
+    .production-mistake-list {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .production-character-preview {
+        padding: 14px;
+    }
+
+    .production-mistake-list li {
+        padding: 20px 18px;
+
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 11px;
+    }
+
+    .production-mistake-list h3 {
+        font-size: 15px;
+    }
+
+    .production-mistake-list p {
+        font-size: 12px;
+    }
+
+    .production-management-code {
+        padding:
+            34px
+            18px;
+    }
+
+    .production-management-code strong {
+        font-size: 42px;
+    }
+
+}
+
+/* ==================================================
+   Vanished Image Incident
+================================================== */
+
+.vanished-image-preview {
+    width: min(100%, 760px);
+}
+
+.transparent-image-area {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    aspect-ratio: 16 / 10;
+
+    display: grid;
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(226, 241, 241, 0.14);
+
+    border-radius: 7px;
+}
+
+.transparent-grid {
+    position: absolute;
+    inset: 0;
+
+    background-color: #d9d9d9;
+
+    background-image:
+        linear-gradient(
+            45deg,
+            #bcbcbc 25%,
+            transparent 25%
+        ),
+        linear-gradient(
+            -45deg,
+            #bcbcbc 25%,
+            transparent 25%
+        ),
+        linear-gradient(
+            45deg,
+            transparent 75%,
+            #bcbcbc 75%
+        ),
+        linear-gradient(
+            -45deg,
+            transparent 75%,
+            #bcbcbc 75%
+        );
+
+    background-position:
+        0 0,
+        0 12px,
+        12px -12px,
+        -12px 0;
+
+    background-size:
+        24px 24px;
+
+    opacity: 0.9;
+}
+
+.transparent-image-area > p {
+    position: relative;
+    z-index: 1;
+
+    margin: 0;
+    padding: 10px 14px;
+
+    color: rgba(20, 30, 34, 0.68);
+    background: rgba(255, 255, 255, 0.64);
+
+    border:
+        1px solid
+        rgba(20, 30, 34, 0.16);
+
+    border-radius: 5px;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+}
+
+.incident-next-keyword {
+    border-left-color: #e0b14b;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(224, 177, 75, 0.08),
+            rgba(255, 255, 255, 0.02)
+        );
+}
+
+.incident-next-keyword strong {
+    color: #e8c26c;
+
+    font-family:
+        "Noto Sans JP",
+        "Yu Gothic",
+        sans-serif;
+
+    font-size:
+        clamp(
+            38px,
+            7vw,
+            72px
+        );
+
+    letter-spacing: 0.04em;
+
+    text-shadow:
+        0 0 24px
+        rgba(224, 177, 75, 0.23);
+}
+
+@media (max-width: 520px) {
+
+    .transparent-image-area {
+        aspect-ratio: 1 / 1;
+    }
+
+    .transparent-grid {
+        background-position:
+            0 0,
+            0 9px,
+            9px -9px,
+            -9px 0;
+
+        background-size:
+            18px 18px;
+    }
+
+    .incident-next-keyword strong {
+        font-size: 34px;
+    }
+
+}
+
+/* ==================================================
+   Image Recovery Research
+================================================== */
+
+.research-found-link {
+    width: min(100%, 920px);
+    padding: clamp(26px, 4vw, 38px);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    border:
+        1px solid
+        rgba(221, 226, 179, 0.2);
+
+    border-radius: 12px;
+
+    box-shadow:
+        inset 0 0 32px rgba(221, 226, 179, 0.025);
+}
+
+.research-found-link-status {
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: rgba(221, 226, 179, 0.66);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.research-found-link-dot {
+    width: 9px;
+    height: 9px;
+
+    background: #d7d99d;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 12px rgba(215, 217, 157, 0.55);
+}
+
+.research-found-link-domain {
+    margin: 0 0 10px;
+
+    color: var(--record-text-faint);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+}
+
+.research-found-link h3 {
+    max-width: 760px;
+    margin: 0 0 16px;
+
+    color: var(--record-text);
+
+    font-size: clamp(22px, 3vw, 34px);
+    line-height: 1.5;
+}
+
+.research-found-link-description {
+    max-width: 760px;
+    margin: 0 0 26px;
+
+    color: var(--record-text-soft);
+
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.research-found-link-meta {
+    margin: 0 0 28px;
+
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+
+    border-top:
+        1px solid
+        var(--record-border-soft);
+}
+
+.research-found-link-meta div {
+    padding: 15px 0;
+
+    border-bottom:
+        1px solid
+        var(--record-border-soft);
+}
+
+.research-found-link-meta dt {
+    margin-bottom: 5px;
+
+    color: var(--record-text-muted);
+    font-size: 11px;
+}
+
+.research-found-link-meta dd {
+    margin: 0;
+
+    color: var(--record-text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.research-found-link-button {
+    min-height: 48px;
+    padding: 0 19px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+
+    color: #11191c;
+    background: #d7d99d;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    transition:
+        filter 0.2s ease,
+        transform 0.2s ease;
+}
+
+.research-found-link-button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+}
+
+.research-warning-note {
+    margin-top: 24px;
+}
+
+@media (max-width: 700px) {
+
+    .research-found-link-meta {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .research-found-link {
+        padding: 24px 19px;
+    }
+
+    .research-found-link h3 {
+        font-size: 22px;
+    }
+
+    .research-found-link-description {
+        font-size: 14px;
+    }
+
+    .research-found-link-button {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+}
+
+/* ==================================================
+   Rough External Thread Link
+================================================== */
+
+.rough-thread-link {
+    width: min(100%, 760px);
+    margin: 30px 0 34px;
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    color: rgba(235, 246, 246, 0.82);
+    background: rgba(255, 255, 255, 0.025);
+
+    border:
+        1px dashed
+        rgba(226, 241, 241, 0.2);
+
+    border-radius: 6px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.rough-thread-link:hover {
+    background: rgba(255, 255, 255, 0.045);
+
+    border-color:
+        rgba(80, 216, 203, 0.42);
+
+    transform: translateX(3px);
+}
+
+.rough-thread-link span {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.rough-thread-link small {
+    flex-shrink: 0;
+
+    color: var(--record-cyan);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+    letter-spacing: 0.08em;
+}
+
+@media (max-width: 600px) {
+
+    .rough-thread-link {
+        padding: 17px 16px;
+
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .rough-thread-link span {
+        font-size: 14px;
+    }
+
+}
+
+/* ==================================================
+   PORTAL-020
+   Image Search Record
+================================================== */
+
+
+/* ==================================================
+   Image Search Note
+================================================== */
+
+.image-search-note {
+    max-width: 920px;
+}
+
+.image-search-note p {
+    margin: 0 0 20px;
+
+    color: rgba(
+        220,
+        236,
+        237,
+        0.68
+    );
+
+    font-size: 16px;
+    line-height: 1.95;
+}
+
+.image-search-note hr {
+    margin: 44px 0;
+
+    border: 0;
+
+    border-top: 1px solid rgba(
+        220,
+        236,
+        237,
+        0.12
+    );
+}
+
+
+/* ==================================================
+   Image Search Capture
+================================================== */
+
+.image-search-capture {
+    width: min(
+        100%,
+        620px
+    );
+
+    margin: 34px 0 38px;
+
+    padding: 20px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.035
+    );
+
+    border: 1px solid rgba(
+        83,
+        215,
+        202,
+        0.2
+    );
+
+    border-radius: 14px;
+}
+
+.image-search-capture img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+}
+
+.image-search-capture figcaption {
+    margin-top: 13px;
+
+    color: rgba(
+        220,
+        236,
+        237,
+        0.4
+    );
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* ==================================================
+   SNS Quote
+================================================== */
+
+.image-search-quote {
+    max-width: 760px;
+
+    margin: 24px 0;
+
+    padding: 22px 25px;
+
+    color: #edfafa;
+
+    background: rgba(
+        83,
+        215,
+        202,
+        0.055
+    );
+
+    border-left: 3px solid #53d7ca;
+
+    border-radius: 0 10px 10px 0;
+
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.8;
+}
+
+
+/* ==================================================
+   Next Keyword
+================================================== */
+
+.image-search-keyword {
+    max-width: 720px;
+}
+
+.image-search-keyword strong {
+    overflow-wrap: anywhere;
+}
+
+
+/* ==================================================
+   PORTAL-020 Mobile
+================================================== */
+
+@media (max-width: 600px) {
+
+    .image-search-note p {
+        font-size: 14px;
+    }
+
+    .image-search-capture {
+        margin: 26px 0 31px;
+
+        padding: 12px;
+    }
+
+    .image-search-quote {
+        padding: 18px 17px;
+
+        font-size: 15px;
+    }
+
+}
+
+/* ==================================================
+   PORTAL-021
+   Rengoku Pukyura Account Record
+================================================== */
+
+.rengoku-account-note {
+    max-width: 920px;
+}
+
+.rengoku-account-note p {
+    margin: 0 0 20px;
+
+    color: rgba(
+        220,
+        236,
+        237,
+        0.68
+    );
+
+    font-size: 16px;
+    line-height: 1.95;
+}
+
+.rengoku-account-note hr {
+    margin: 44px 0;
+
+    border: 0;
+
+    border-top: 1px solid rgba(
+        220,
+        236,
+        237,
+        0.12
+    );
+}
+
+.rengoku-account-link {
+    width: min(100%, 760px);
+
+    margin: 32px 0 38px;
+    padding: 24px 27px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 7px 24px;
+    align-items: center;
+
+    color: #eafafa;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(83, 215, 202, 0.09),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border: 1px solid rgba(
+        83,
+        215,
+        202,
+        0.28
+    );
+
+    border-radius: 13px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.rengoku-account-link:hover {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(83, 215, 202, 0.14),
+            rgba(255, 255, 255, 0.04)
+        );
+
+    border-color: rgba(
+        83,
+        215,
+        202,
+        0.5
+    );
+
+    transform: translateY(-2px);
+}
+
+.rengoku-account-link-label {
+    grid-column: 1 / -1;
+
+    color: rgba(
+        83,
+        215,
+        202,
+        0.65
+    );
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.rengoku-account-link strong {
+    min-width: 0;
+
+    overflow-wrap: anywhere;
+
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+.rengoku-account-link small {
+    color: #53d7ca;
+
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+
+    .rengoku-account-note p {
+        font-size: 14px;
+    }
+
+    .rengoku-account-link {
+        padding: 20px 18px;
+
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .rengoku-account-link strong {
+        font-size: 15px;
+    }
+
+}
+
+/* ==================================================
+   PORTAL-025
+   Investigation Complete
+================================================== */
+
+.investigation-complete {
+    margin:
+        62px 0 42px;
+    padding:
+        42px 28px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.025),
+            rgba(62, 136, 130, 0.045)
+        );
+
+    border:
+        1px solid rgba(99, 187, 178, 0.16);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+}
+
+.investigation-complete::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.23;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 3px,
+            rgba(255, 255, 255, 0.018) 3px,
+            rgba(255, 255, 255, 0.018) 4px
+        );
+}
+
+.investigation-complete-code {
+    margin:
+        0 0 13px;
+
+    color:
+        rgba(104, 208, 197, 0.52);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+    letter-spacing: 0.22em;
+}
+
+.investigation-complete-description {
+    margin:
+        0 0 26px;
+
+    color:
+        rgba(216, 229, 226, 0.62);
+
+    font-size: 12px;
+}
+
+.investigation-complete-button {
+    min-width: 210px;
+
+    padding:
+        15px 34px;
+
+    position: relative;
+
+    color: #eaf8f5;
+    background:
+        rgba(12, 24, 24, 0.76);
+
+    border:
+        1px solid rgba(91, 210, 197, 0.42);
+
+    border-radius: 7px;
+
+    overflow: hidden;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.investigation-complete-button:hover {
+    color: #ffffff;
+    background:
+        rgba(45, 112, 106, 0.25);
+
+    border-color:
+        rgba(102, 230, 216, 0.74);
+
+    box-shadow:
+        0 0 24px rgba(71, 202, 190, 0.12);
+
+    transform:
+        translateY(-1px);
+}
+
+.investigation-complete-button:focus-visible {
+    outline:
+        2px solid rgba(108, 230, 218, 0.75);
+
+    outline-offset: 4px;
+}
+
+.investigation-complete-button:disabled {
+    cursor: wait;
+}
+
+.investigation-complete-button-noise {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(238, 255, 252, 0.7);
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.investigation-complete-button.is-corrupted {
+    animation:
+        investigationButtonShake 0.09s steps(2, end) infinite;
+}
+
+.investigation-complete-button.is-corrupted
+.investigation-complete-button-text {
+    opacity: 0.26;
+}
+
+.investigation-complete-button.is-corrupted
+.investigation-complete-button-noise {
+    opacity: 1;
+
+    animation:
+        investigationTextCorruption 0.12s steps(2, end) infinite;
+}
+
+
+/* ==================================================
+   Full Screen Glitch
+================================================== */
+
+.ending-glitch {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    color: #dffbf6;
+    background: #020505;
+
+    overflow: hidden;
+}
+
+.ending-glitch.is-active {
+    display: flex;
+
+    animation:
+        endingScreenFlicker 0.14s steps(2, end) infinite;
+}
+
+.ending-glitch-noise {
+    position: absolute;
+    inset: -40%;
+
+    opacity: 0.34;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.075) 0,
+            rgba(255, 255, 255, 0.075) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    animation:
+        endingNoiseMove 0.16s steps(2, end) infinite;
+}
+
+.ending-glitch-scanlines {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.48;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.1) 0,
+            rgba(0, 0, 0, 0.1) 2px,
+            rgba(109, 255, 233, 0.025) 2px,
+            rgba(109, 255, 233, 0.025) 4px
+        );
+
+    pointer-events: none;
+}
+
+.ending-glitch-flash {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0;
+
+    background: #ecfffc;
+
+    pointer-events: none;
+}
+
+.ending-glitch.is-flashing
+.ending-glitch-flash {
+    animation:
+        endingWhiteFlash 0.32s steps(2, end) forwards;
+}
+
+.ending-glitch-content {
+    width:
+        min(calc(100% - 44px), 560px);
+
+    position: relative;
+    z-index: 3;
+
+    padding:
+        34px 30px;
+
+    text-align: center;
+
+    background:
+        rgba(0, 8, 8, 0.76);
+
+    border:
+        1px solid rgba(108, 237, 221, 0.2);
+
+    box-shadow:
+        0 0 70px rgba(60, 217, 199, 0.08);
+}
+
+.ending-glitch-code {
+    margin:
+        0 0 16px;
+
+    color:
+        rgba(102, 226, 211, 0.62);
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+    letter-spacing: 0.23em;
+}
+
+.ending-glitch-message {
+    min-height: 1.7em;
+
+    margin:
+        0 0 25px;
+
+    color: #eafffb;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(14px, 3vw, 19px);
+
+    letter-spacing: 0.08em;
+}
+
+.ending-glitch-progress {
+    width: 100%;
+    height: 2px;
+
+    background:
+        rgba(113, 227, 214, 0.1);
+
+    overflow: hidden;
+}
+
+.ending-glitch-progress span {
+    width: 0;
+    height: 100%;
+
+    display: block;
+
+    background:
+        rgba(118, 248, 232, 0.82);
+
+    box-shadow:
+        0 0 12px rgba(104, 239, 222, 0.72);
+}
+
+
+/* ==================================================
+   Glitch Animations
+================================================== */
+
+@keyframes investigationButtonShake {
+
+    0% {
+        transform:
+            translate(0, 0);
+    }
+
+    25% {
+        transform:
+            translate(-2px, 1px);
+    }
+
+    50% {
+        transform:
+            translate(2px, -1px);
+    }
+
+    75% {
+        transform:
+            translate(-1px, -1px);
+    }
+
+    100% {
+        transform:
+            translate(1px, 1px);
+    }
+
+}
+
+@keyframes investigationTextCorruption {
+
+    0% {
+        clip-path:
+            inset(0 0 70% 0);
+
+        transform:
+            translate(-3px, 0);
+    }
+
+    50% {
+        clip-path:
+            inset(35% 0 25% 0);
+
+        transform:
+            translate(4px, 0);
+    }
+
+    100% {
+        clip-path:
+            inset(72% 0 0 0);
+
+        transform:
+            translate(-1px, 0);
+    }
+
+}
+
+@keyframes endingScreenFlicker {
+
+    0% {
+        filter:
+            brightness(1);
+    }
+
+    50% {
+        filter:
+            brightness(1.18)
+            contrast(1.15);
+    }
+
+    100% {
+        filter:
+            brightness(0.88);
+    }
+
+}
+
+@keyframes endingNoiseMove {
+
+    0% {
+        transform:
+            translate(0, 0);
+    }
+
+    25% {
+        transform:
+            translate(-4%, 3%);
+    }
+
+    50% {
+        transform:
+            translate(3%, -2%);
+    }
+
+    75% {
+        transform:
+            translate(-2%, -4%);
+    }
+
+    100% {
+        transform:
+            translate(4%, 2%);
+    }
+
+}
+
+@keyframes endingWhiteFlash {
+
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.94;
+    }
+
+    48% {
+        opacity: 0.08;
+    }
+
+    68% {
+        opacity: 0.78;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+
+/* ==================================================
+   Mobile
+================================================== */
+
+@media (max-width: 600px) {
+
+    .investigation-complete {
+        margin-top: 48px;
+
+        padding:
+            34px 18px;
+    }
+
+    .investigation-complete-button {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .ending-glitch-content {
+        padding:
+            27px 19px;
+    }
+
+}
+
+
+/* ==================================================
+   Reduced Motion
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .investigation-complete-button,
+    .ending-glitch,
+    .ending-glitch-noise,
+    .ending-glitch-flash {
+        animation: none !important;
+    }
+
+}
